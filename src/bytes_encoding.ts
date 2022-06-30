@@ -1,5 +1,7 @@
 //
 
+import { _TransformStream } from "https://raw.githubusercontent.com/i-xi-dev/compat.es/1.0.1/mod.ts";
+
 // The byte encoding
 
 namespace BytesEncoding {
@@ -39,7 +41,7 @@ namespace BytesEncoding {
     readonly #stream: TransformStream<string, Uint8Array>;
 
     constructor(decoder: Decoder, regulator: DecoderStreamRegulator) {
-      this.#stream = new TransformStream<string, Uint8Array>(
+      this.#stream = new _TransformStream<string, Uint8Array>(
         DecoderStream._createTransformer(decoder, regulator),
       );
     }
@@ -93,7 +95,7 @@ namespace BytesEncoding {
     readonly #stream: TransformStream<Uint8Array, string>;
 
     constructor(encoder: Encoder, regulator: EncoderStreamRegulator) {
-      this.#stream = new TransformStream<Uint8Array, string>(
+      this.#stream = new _TransformStream<Uint8Array, string>(
         EncoderStream._createTransformer(encoder, regulator),
       );
     }
