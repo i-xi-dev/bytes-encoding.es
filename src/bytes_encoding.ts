@@ -1,6 +1,6 @@
 //
 
-import { _TransformStream } from "https://raw.githubusercontent.com/i-xi-dev/compat.es/1.0.1/mod.ts";
+import { _TransformStream } from "i-xi-dev/compat";
 
 // The byte encoding
 
