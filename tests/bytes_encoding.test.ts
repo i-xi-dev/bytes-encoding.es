@@ -1,5 +1,5 @@
 import { assertStrictEquals } from "std/testing/asserts";
-import { BytesEncoding } from "../src/bytes_encoding.ts";
+import { BytesEncoding } from "../mod.ts";
 
 Deno.test("BytesEncoding.Decoder", () => {
   class TestDecoder implements BytesEncoding.Decoder {
