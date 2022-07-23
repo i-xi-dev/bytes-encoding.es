@@ -1,5 +1,3 @@
-//
-
 import { _TransformStream } from "./deps.ts";
 
 // The byte encoding
