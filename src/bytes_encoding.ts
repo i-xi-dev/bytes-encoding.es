@@ -34,6 +34,9 @@ namespace BytesEncoding {
     flush(): string;
   }
 
+  /**
+   * The `BytesEncoding.DecoderStream` converts a stream of string into byte sequence.
+   */
   export abstract class DecoderStream
     implements TransformStream<string, Uint8Array> {
     readonly #stream: TransformStream<string, Uint8Array>;
@@ -88,6 +91,9 @@ namespace BytesEncoding {
     flush(): Uint8Array;
   }
 
+  /**
+   * The `BytesEncoding.EncoderStream` converts a stream of byte sequence into string.
+   */
   export abstract class EncoderStream
     implements TransformStream<Uint8Array, string> {
     readonly #stream: TransformStream<Uint8Array, string>;
