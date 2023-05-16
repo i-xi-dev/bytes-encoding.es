@@ -1,4 +1,4 @@
-import { _TransformStream } from "i-xi-dev/compat.es";
+import { _TransformStream } from "../deps.ts";
 
 // The byte encoding
 
