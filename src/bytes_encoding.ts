@@ -2,7 +2,7 @@ import { _TransformStream } from "../deps.ts";
 
 // The byte encoding
 
-namespace BytesEncoding {
+export namespace BytesEncoding {
   /**
    * The decoder that converts a string into a byte sequence.
    */
@@ -143,6 +143,3 @@ namespace BytesEncoding {
   }
   Object.freeze(EncoderStream);
 }
-Object.freeze(BytesEncoding);
-
-export { BytesEncoding };
