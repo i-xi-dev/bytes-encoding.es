@@ -121,15 +121,23 @@ export namespace BytesEncoding {
           chunk: Uint8Array,
           controller: TransformStreamDefaultController<string>,
         ): void {
-          const toEncode = regulator.regulate(chunk);
-          const encoded = encoder.encode(toEncode);
-          controller.enqueue(encoded);
-        },
-        flush(controller: TransformStreamDefaultController<string>): void {
-          const toEncode = regulator.flush();
-          if (toEncode.length > 0) {
+          try {
+            const toEncode = regulator.regulate(chunk);
             const encoded = encoder.encode(toEncode);
             controller.enqueue(encoded);
+          } catch (exception) {
+            controller.error(exception);
+          }
+        },
+        flush(controller: TransformStreamDefaultController<string>): void {
+          try {
+            const toEncode = regulator.flush();
+            if (toEncode.length > 0) {
+              const encoded = encoder.encode(toEncode);
+              controller.enqueue(encoded);
+            }
+          } catch (exception) {
+            controller.error(exception);
           }
         },
       };
